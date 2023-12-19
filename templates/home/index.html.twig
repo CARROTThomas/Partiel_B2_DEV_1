@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Doc API Pariel 1 B2DEV{% endblock %}
 
 {% block body %}
 <style>
@@ -9,12 +9,163 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Salut !,<br> Voici la doc de l'API du Partiel 1 B2DEV</h1>
+    <hr>
+    <h2 class="bolder basic-route">Basic route : "https://partiel.thomascarrot.com"</h2>
+    <hr>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/thomas/Documents/projets/partiel/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/thomas/Documents/projets/partiel/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
+    <div class="User">
+        <h2 class="bolder">User</h2>
+        <div class="margin-left1">
+            <h5>Register</h5>
+            <p class="route">/register</p>
+        </div>
+        <div class="margin-left1">
+            <h4>Login</h4>
+            <p class="route">/api/login_check</p>
+        </div>
+        <hr>
+    </div>
+
+    <div class="Profile">
+        <h2 class="bolder">Profile</h2>
+        <div class="margin-left1">
+            <h4>app_profile_all</h4>
+            <p>Get all profile register in app</p>
+            <p class="route">/api/profile/all</p>
+        </div>
+        <div class="margin-left1">
+            <h4>app_profile_myrequest</h4>
+            <p>Retrieve all my requests</p>
+            <p class="route">/api/profile/myrequests</p>
+        </div>
+        <div class="margin-left1">
+            <h4>app_profile_eventsattending</h4>
+            <p>Return all the events I am registered for</p>
+            <p class="route">/api/profile/events/attending</p>
+        </div>
+        <hr>
+    </div>
+
+    <div class="Event">
+        <h2 class="bolder">Event</h2>
+        <div class="margin-left1">
+            <h4>app_event_all</h4>
+            <p>Displays the list of public events</p>
+            <p class="route">/api/event/public/all</p>
+        </div>
+        <div class="margin-left1">
+            <h4>app_event_show</h4>
+            <p>show 1 event with contributions, suggestions, player, admin, date, status</p>
+            <p class="route">/api/event/show/{event_id}</p>
+        </div>
+        <div class="margin-left1">
+            <h4>app_event_join</h4>
+            <p>Join a public event</p>
+            <p class="route">/api/event/join/{event_id}</p>
+        </div>
+        <div class="margin-left1">
+            <h4>app_event_list_player</h4>
+            <p>Retrieve the list of participants by event</p>
+            <p class="route">/api/event/list/{event_id}</p>
+        </div>
+        <div class="margin-left1">
+            <h4>app_event_create_event</h4>
+            <p>Create an event</p>
+            <p class="route">/api/event/create</p>
+            <div class="margin-left1">
+                <p>
+                    exemple :
+                    {
+                    "place": "Grenoble",
+                    "description": "soirée chill",
+                    "startDate": "2024-12-20 14:30:00",
+                    "endDate": "2024-12-21 14:30:00",
+                    "isPrivate": true,
+                    "statusPlace": true
+                    }
+                </p>
+            </div>
+        </div>
+        <div class="margin-left1">
+            <h4>app_event_edit_event</h4>
+            <p>Modified the dates and status of an event</p>
+            <p class="route">/api/event/join/{event_id}</p>
+            <div class="margin-left1">
+                <p>
+                    exemple :
+                    {
+                    "startDate": "2025-12-20 14:30:00",
+                    "endDate": "2026-12-21 14:30:00",
+                    "status": false
+                    }
+                </p>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+    <div class="Request">
+        <h2 class="bolder">Request</h2>
+        <div class="margin-left1">
+            <h4>send_request</h4>
+            <p>Sends a private event invitation to a user chosen in the app</p>
+            <p class="route">/api/request/send/{profile_id}/event/{event_id}</p>
+        </div>
+        <div class="margin-left1">
+            <h4>accept_request</h4>
+            <p>Accepted an invitation to an event</p>
+            <p class="route">/api/request/accept/{request_id}</p>
+        </div>
+        <div class="margin-left1">
+            <h4>refuse_request</h4>
+            <p>Refused an invitation to an event</p>
+            <p class="route">/api/request/refuse/{request_id}</p>
+        </div>
+        <hr>
+    </div>
+
+    <div class="Suggestion">
+        <h2 class="bolder">Suggestion</h2>
+        <p>"doit être un event privée et admin de l'event"</p>
+        <div class="margin-left1">
+            <h4>app_suggestion_add</h4>
+            <p>Create a suggestion</p>
+            <p class="route">/api/suggestion/add/{event_id}</p>
+            <div class="margin-left">
+                <p>exemple :
+                    {
+                    "product": "boissons"
+                    }
+                </p>
+            </div>
+        </div>
+        <div class="margin-left1">
+            <h4>app_suggestion_accept</h4>
+            <p>Create a contribution with the suggestion data with additional information from the user</p>
+            <p class="route">/api/request/accept/{suggestion_id}</p>
+        </div>
+        <hr>
+    </div>
+
+    <div class="Contribution">
+        <h2 class="bolder">Contribution</h2>
+        <p>"doit être un event privée et admin de l'event"</p>
+        <div class="margin-left1">
+            <h4>app_contribution_create</h4>
+            <p>Create a contribution with the suggestion data with additional information from the user</p>
+            <p class="route">/api/contribution/create/{event_id}</p>
+            <div class="margin-left">
+                <p>exemple :
+                    {
+                    "product": "Selecto"
+                    }
+                </p>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+
 </div>
 {% endblock %}

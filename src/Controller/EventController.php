@@ -29,6 +29,11 @@ class EventController extends AbstractController
         return $this->json($events, 200, [], ["groups"=>"events:display"]);
     }
 
+    /**
+     * @param Event $event
+     * @return Response
+     * show 1 event with contributions, suggestions, player, admin, date, status
+     */
     #[Route('/show/{event_id}', name: 'app_event_show')]
     public function show(
         #[MapEntity(id: 'event_id')] Event $event,
@@ -96,6 +101,7 @@ class EventController extends AbstractController
         EntityManagerInterface $manager,
         SerializerInterface $serializer,
     ):Response{
+        if (!$this->getUser()) {return $this->json("connection requise", 200);}
 
         $newEvent = $serializer->deserialize($request->getContent(),Event::class,"json");
 

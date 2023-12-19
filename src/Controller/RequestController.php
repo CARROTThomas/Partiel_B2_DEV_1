@@ -90,6 +90,13 @@ class RequestController extends AbstractController
         return $this->json("invitation refusé.");
     }
 
+    /**
+     * @param EntityManagerInterface $manager
+     * @param Profile $profile
+     * @param Event $event
+     * @return Response
+     * Promote a player to moderator / Not Finish
+     */
     #[Route('/promote/{profile_id}/event/{event_id}', name: 'refuse_request')]
     public function promote(
         EntityManagerInterface $manager,
@@ -104,6 +111,6 @@ class RequestController extends AbstractController
         $manager->remove($profile);
         $manager->flush();
 
-        return $this->json("user promote to -admin");
+        return $this->json("cette route n'est pas encore finit, revenez plustard");
     }
 }

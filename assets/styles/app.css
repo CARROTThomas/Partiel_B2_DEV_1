@@ -1,3 +1,23 @@
 body {
-    background-color: skyblue;
+    background-color: grey;
+}
+
+
+
+.margin-left1 {
+    margin-left: 1em;
+}
+
+.bolder {
+    font-weight: bolder;
+}
+
+.route {
+    padding: .7em;
+    border-radius: 10px;
+    border: 1px solid #505050;
+}
+
+.basic-route {
+    color: #32517a;
 }

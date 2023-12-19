@@ -13,7 +13,7 @@ class ProfileController extends AbstractController
     /**
      * @param ProfileRepository $profileRepository
      * @return Response
-     * Get all profile in app
+     * Get all profile register in app
      */
     #[Route('/all', name: 'app_profile_all')]
     public function index(ProfileRepository $profileRepository): Response

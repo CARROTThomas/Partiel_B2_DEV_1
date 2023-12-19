@@ -15,6 +15,14 @@ use Symfony\Component\Serializer\SerializerInterface;
 #[Route('/api/contribution')]
 class ContributionController extends AbstractController
 {
+    /**
+     * @param Request $request
+     * @param EntityManagerInterface $manager
+     * @param SerializerInterface $serializer
+     * @param Event $event
+     * @return Response
+     * Create a contribution in event
+     */
     #[Route('/create/{event_id}', name: 'app_contribution_create')]
     public function create(
         Request $request,
